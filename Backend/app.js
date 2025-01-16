@@ -4,7 +4,10 @@ dotenv.config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const colors = require('colors');
+const connectDB = require('./db/db');
 
+connectDB();
 app.use(cors());
 
 app.get('/', (req, res)=> {
