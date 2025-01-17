@@ -40,3 +40,36 @@ User's password (minimum 6 characters).
 User's password (minimum 6 characters).
  
 
+## `api/v1/auth/login` Endpoint
+
+### Description
+
+Authenticates a user using their email and password, returning a JWT token upon access
+
+### HTTP Method
+
+`POST`
+
+### Request Body
+
+The request body should be in JSON format and include the following fields:
+
+- `email` (string, required): User's email address (must be a valid email).
+- `password` (string, required):
+User's password (minimum 6 characters).
+
+### Example Response
+
+- `statusCode` (number): 
+- `success` (boolean):
+- `message` (string):
+- `details` (object):
+    - `token` (string): JWT token
+    - `user` (object):
+        - `fullName` (object):
+            - `firstName` (string): User's first name (minimum 3 characters).
+            - `lastName` (string)
+    : User's last name (minimum 3 characters).
+        - `email` (string): User's email address (must be a valid email).
+        - `password` (string):
+User's password (minimum 6 characters).
