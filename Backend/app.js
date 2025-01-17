@@ -9,12 +9,17 @@ const connectDB = require('./db/db');
 const authRoutes = require('./routes/user.routes');
 const logger = require('./middlewares/logger');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 connectDB();
 
 app.use(cors());
 
+// Body parser
 app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
 
 app.use(express.urlencoded({extended: true}));
 
