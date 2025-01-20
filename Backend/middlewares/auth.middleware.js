@@ -20,7 +20,6 @@ module.exports.authUser = async (req, res, next) => {
     try{
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const user = await UserModel.findById(decoded._id);
-        console.log(user,'called')
         req.user = user;
         return next();
     }catch(error){
