@@ -88,8 +88,9 @@ CaptainSchema.statics.hashPassword = async function(password){
     return bcrypt.hash(password, 10);
 };
 
-CaptainSchema.methods.comparePassword = async function(enterPassword){
-    await bcrypt.compare(enterPassword, this.password);
+// Method to compare passwords
+CaptainSchema.methods.comparePassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
 };
 
 
