@@ -121,3 +121,56 @@ Requires a valid JWT token in the Authorization header or cookie:
 - `statusCode` (number)
 - `success` (boolean)
 - `message` (string)
+
+
+
+## `api/v1/captains/register` Endpoint
+
+### Description
+
+Logout the current user and blacklist the token provided in cookie or headers
+
+### HTTP Method
+
+`POST`
+
+### Authentication
+
+Requires a valid JWT token in the Authorization header or cookie:
+
+### Request Body
+
+The request body should be in JSON format and include the following fields:
+
+ - `fullName` (object)
+    - `firstName` (string, required): User's first name (minimum 3 characters).
+    - `lastName` (string, optional) : User's last name (minimum 3 characters).
+- `email` (string, required): User's email address (must be a valid email).    
+- `password` (string, required): User's password (minimum 6 characters).
+- `status` (string, required)
+- `vehicle` (object):
+    - `color` (string, required)
+    - `plate` (string, required)
+    - `capacity` (number, required)
+    - `vehicleType` (string, required)
+
+### Example Response
+
+- `statusCode` (number) 
+- `success` (boolean)
+- `message` (string)
+- `details` (object)
+    - `token` (string): JWT Token
+    - `captain` (object)    
+        - `fullName` (object)
+            - `firstName` (string): 
+            - `lastName` (string) : 
+        - `email` (string): 
+        - `password` (string, password):
+        - `status` (string)
+        - `vehicle` (object)
+            - `color` (string): vehicle color
+            - `plate` (string): vehicle plate
+            - `capacity` (number): vehicle capacity
+            - `vehicleType` (string): vehicle type
+
